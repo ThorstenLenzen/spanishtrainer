@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=toto
+      - MONGO_INITDB_ROOT_PASSWORD=qwertz
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=toto
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=qwertz
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+volumes:
+  mongodata: {}
+
+networks:
+  default:
+    name: mongodb_network
