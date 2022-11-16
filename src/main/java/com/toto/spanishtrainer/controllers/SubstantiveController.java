@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @AllArgsConstructor
 @RestController
@@ -21,17 +22,17 @@ public class SubstantiveController {
     }
 
     @GetMapping("{id}")
-    public SubstantiveForDisplay getById(@PathVariable long id){
-        return null;
+    public SubstantiveForDisplay getById(@PathVariable UUID id){
+        return _service.getById(id);
     }
 
     @PostMapping()
     public SubstantiveForDisplay post(@RequestBody SubstantiveForCreate substantive){
-        return null;
+        return _service.create(substantive);
     }
 
     @PutMapping("{id}")
-    public SubstantiveForDisplay put(@RequestBody SubstantiveForUpdate substantive){
-        return null;
+    public SubstantiveForDisplay put(@RequestBody SubstantiveForUpdate substantive, @PathVariable UUID id){
+        return _service.update(substantive, id);
     }
 }

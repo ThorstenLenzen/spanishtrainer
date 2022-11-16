@@ -6,14 +6,14 @@ import com.toto.spanishtrainer.serviceModel.SubstantiveForDisplay;
 import com.toto.spanishtrainer.serviceModel.SubstantiveForUpdate;
 import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @AllArgsConstructor
-@Service
+@Component
 public class SubstantiveConverter {
 
     public SubstantiveForDisplay toSubstantiveForDisplay(@NotNull Substantive substantive){
